@@ -1,11 +1,603 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TheKingOfAi</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TheKingOfAI — إبراهيم · مطوّر أنظمة مستقل</title>
+<meta name="description" content="مطوّر مستقل. مواقع ومنتجات رقمية، أكواد وسكربتات وأتمتة، تطبيقات وواجهات، خوارزميات ونماذج كمية.">
+<link rel="canonical" href="https://thekingofai.workers.dev/">
+<meta name="theme-color" content="#E9EAE6">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Ebrahem — TheKingOfAI">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TheKingOfAI">
+<meta property="og:url" content="https://thekingofai.workers.dev/">
+<meta property="og:title" content="TheKingOfAI — إبراهيم · مطوّر أنظمة مستقل">
+<meta property="og:description" content="بابني أنظمة تشتغل — من الواجهة لحد الخوارزمية. مواقع، أكواد وأتمتة، تطبيقات، ونماذج كمية.">
+<meta property="og:image" content="https://thekingofai.workers.dev/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ar_EG">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TheKingOfAI — Ebrahem · Independent systems developer">
+<meta name="twitter:description" content="I build systems that work — from the interface to the algorithm.">
+<meta name="twitter:image" content="https://thekingofai.workers.dev/assets/og.png">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Person",
+      "@id":"https://thekingofai.workers.dev/#person",
+      "name":"Ebrahem",
+      "alternateName":"TheKingOfAI",
+      "jobTitle":"Independent software and systems developer",
+      "email":"mailto:The.KingOfAI@outlook.com",
+      "url":"https://thekingofai.workers.dev/",
+      "sameAs":["https://github.com/EbrahemElbadry"],
+      "knowsAbout":["Web development","Landing pages","Digital products","Automation scripts","API integration","Application design","Algorithmic trading","Quantitative models","MQL5","Python","JavaScript","React"],
+      "knowsLanguage":["ar","en"]
+    },
+    {
+      "@type":"ProfessionalService",
+      "@id":"https://thekingofai.workers.dev/#service",
+      "name":"TheKingOfAI",
+      "founder":{"@id":"https://thekingofai.workers.dev/#person"},
+      "url":"https://thekingofai.workers.dev/",
+      "email":"mailto:The.KingOfAI@outlook.com",
+      "image":"https://thekingofai.workers.dev/assets/og.png",
+      "areaServed":"Worldwide",
+      "availableLanguage":["ar","en"],
+      "hasOfferCatalog":{
+        "@type":"OfferCatalog",
+        "name":"Delivery tracks",
+        "itemListElement":[
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Websites and digital products"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Code, scripts and automation"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Apps and interface design"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Algorithms and quantitative models"}}
+        ]
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='%2322319B' stroke-width='2.6' stroke-linecap='square'%3E%3Cpath d='M5 25h22M5 25V15M16 25V7M27 25V15'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E9EAE6;
+  --paper-2:#F3F4F1;
+  --ink:#14171A;
+  --ink-2:#4A5157;
+  --ink-3:#797F84;
+  --rule:#CFD2CB;
+  --rule-2:#AFB3AB;
+  --blue:#22319B;
+  --blue-2:#1A2578;
+  --flag:#A8371F;
+  --body:"IBM Plex Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:"Alexandria","IBM Plex Sans Arabic",sans-serif;
+  --mono:"IBM Plex Mono","IBM Plex Sans Arabic",ui-monospace,monospace;
+  --pad:clamp(16px,4vw,56px);
+  --maxw:1220px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-weight:300;line-height:1.72;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+
+/* ===== sheet ===== */
+.sheet{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad);
+  border-inline:1px solid var(--rule);background:var(--paper)}
+.spine{position:fixed;inset-block-start:50%;inset-inline-start:14px;transform:translateY(-50%);
+  writing-mode:vertical-rl;font-family:var(--mono);font-size:10px;letter-spacing:.34em;
+  color:var(--rule-2);text-transform:uppercase;z-index:2;pointer-events:none}
+html[dir="rtl"] .spine{transform:translateY(-50%) rotate(180deg)}
+@media (max-width:1340px){.spine{display:none}}
+
+/* ===== top bar ===== */
+.topbar{display:flex;align-items:center;gap:10px;padding-block:18px;position:sticky;
+  inset-block-start:0;z-index:20;background:color-mix(in srgb,var(--paper) 94%,transparent);
+  backdrop-filter:blur(6px);border-block-end:1px solid var(--rule)}
+.brand{display:flex;align-items:center;gap:9px;margin-inline-end:auto}
+.brand svg{width:24px;height:24px;flex:none}
+.brand b{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.01em}
+.brand b i{font-style:normal;color:var(--blue)}
+nav{display:flex;gap:22px;margin-inline-end:22px}
+nav a{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+nav a:hover{color:var(--blue)}
+@media (max-width:900px){nav{display:none}}
+.btn{display:inline-block;font-family:var(--body);font-size:13.5px;font-weight:500;
+  padding:9px 17px;border:1px solid var(--ink);color:var(--ink);background:transparent;
+  cursor:pointer;transition:background .18s,color .18s;white-space:nowrap;text-align:center}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn-solid{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:500}
+.btn-solid:hover{background:var(--blue-2);border-color:var(--blue-2);color:#fff}
+.lang{font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:9px 11px}
+
+/* ===== section scaffold ===== */
+section{padding-block:clamp(48px,7.5vw,96px);border-block-end:1px solid var(--rule)}
+.label{display:flex;align-items:center;gap:14px;margin:0 0 22px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue)}
+.label::after{content:"";flex:1;height:1px;background:var(--rule)}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(23px,3.3vw,34px);
+  line-height:1.3;letter-spacing:-.015em;margin:0 0 14px}
+.lead{max-width:64ch;color:var(--ink-2);font-size:clamp(14.5px,1.5vw,16.5px);margin:0}
+
+/* ===== hero / identification block ===== */
+.hero{padding-block:clamp(44px,7vw,88px)}
+.idline{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin:0 0 26px}
+.idline b{color:var(--blue);font-weight:500}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,6vw,64px);line-height:1.12;
+  letter-spacing:-.03em;margin:0 0 22px;max-width:16ch}
+h1 em{font-style:normal;color:var(--blue);display:block}
+.hero>p{max-width:52ch;color:var(--ink-2);font-size:clamp(15px,1.7vw,18px);margin:0 0 34px}
+.hero-cta{display:flex;gap:11px;flex-wrap:wrap;margin-block-end:44px}
+.specs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);gap:1px;background:var(--rule)}
+.specs div{background:var(--paper);padding:15px 17px}
+.specs span{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-3);margin-block-end:6px}
+.specs b{font-weight:500;font-size:14.5px}
+@media (max-width:760px){.specs{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== capability datasheet rows (signature) ===== */
+.cap{display:grid;grid-template-columns:130px 1fr 300px;gap:clamp(16px,3vw,40px);
+  padding-block:30px;border-block-start:1px solid var(--rule)}
+.cap:first-of-type{border-block-start:1px solid var(--ink)}
+.cap .code{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--blue);padding-block-start:5px}
+.cap .code i{display:block;font-style:normal;color:var(--ink-3);margin-block-start:5px;letter-spacing:.1em}
+.cap h3{font-family:var(--display);font-size:clamp(18px,2.2vw,23px);font-weight:600;margin:0 0 9px;letter-spacing:-.015em}
+.cap p{margin:0;color:var(--ink-2);font-size:14.5px;max-width:46ch}
+.cap dl{margin:0;font-size:13px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-content:start}
+.cap dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);padding-block-start:5px}
+.cap dd{margin:0;color:var(--ink-2)}
+@media (max-width:960px){.cap{grid-template-columns:1fr}.cap .code{padding-block-start:0}}
+
+/* ===== work table ===== */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:400;text-align:start;padding:0 14px 11px;border-block-end:1px solid var(--ink)}
+.tbl td{padding:15px 14px;border-block-end:1px solid var(--rule);vertical-align:top}
+.tbl tr:hover td{background:var(--paper-2)}
+.tbl .nm{font-weight:500;font-size:15px}
+.tbl .ds{display:block;color:var(--ink-2);font-size:13px;margin-block-start:3px;max-width:44ch}
+.tag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+  padding:3px 8px;border:1px solid var(--rule-2);color:var(--ink-2);white-space:nowrap}
+.tag.live{border-color:var(--blue);color:var(--blue)}
+.tag.priv{border-color:var(--rule-2);color:var(--ink-3)}
+.tag.dev{border-color:var(--flag);color:var(--flag)}
+.tbl a.open{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--blue);white-space:nowrap}
+.tbl a.open:hover{text-decoration:underline}
+.tbl .muted{color:var(--ink-3);font-family:var(--mono);font-size:11px}
+@media (max-width:760px){
+  .tbl thead{display:none}
+  .tbl tr{display:block;border-block-end:1px solid var(--rule);padding-block:14px}
+  .tbl td{display:block;border:0;padding:2px 0}
+}
+
+/* ===== process ===== */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule);
+  border:1px solid var(--rule);margin-block-start:34px}
+.flow div{background:var(--paper);padding:20px 18px}
+.flow .n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--blue);display:block;margin-block-end:11px}
+.flow h4{font-family:var(--display);font-size:15.5px;font-weight:600;margin:0 0 7px}
+.flow p{margin:0;font-size:13px;color:var(--ink-2)}
+@media (max-width:1000px){.flow{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.flow{grid-template-columns:1fr}}
+
+/* ===== standards ===== */
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(24px,5vw,60px);margin-block-start:26px}
+.rules li{list-style:none;padding:14px 0 14px 0;border-block-end:1px solid var(--rule);
+  font-size:14.5px;color:var(--ink-2);display:flex;gap:12px}
+.rules li b{font-family:var(--mono);font-size:10px;color:var(--blue);padding-block-start:5px;flex:none}
+.rules ul{margin:0;padding:0}
+@media (max-width:760px){.rules{grid-template-columns:1fr}}
+
+/* ===== engagement ===== */
+.eng{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.eng>div{background:var(--paper);padding:clamp(20px,2.6vw,30px);display:flex;flex-direction:column}
+.eng .code{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--blue);margin-block-end:13px}
+.eng h3{font-family:var(--display);font-size:19px;font-weight:600;margin:0 0 9px;letter-spacing:-.01em}
+.eng p{margin:0 0 18px;color:var(--ink-2);font-size:14px}
+.eng ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:8px}
+.eng li{position:relative;padding-inline-start:17px;font-size:13.5px;color:var(--ink-2)}
+.eng li::before{content:"";position:absolute;inset-inline-start:0;top:10px;width:7px;height:1px;background:var(--blue)}
+.eng .fee{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-3);
+  border-block-start:1px solid var(--rule);padding-block-start:14px;margin-block-start:auto;margin-block-end:16px}
+@media (max-width:900px){.eng{grid-template-columns:1fr}}
+
+/* ===== about ===== */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,64px);align-items:start}
+.about p{color:var(--ink-2);font-size:15.5px;margin:0 0 15px;max-width:56ch}
+.about p strong{color:var(--ink);font-weight:500}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+
+/* ===== cta ===== */
+.cta{text-align:center;border-block-end:0}
+.cta h2{font-size:clamp(25px,4.2vw,42px);max-width:20ch;margin-inline:auto}
+.cta .lead{margin:0 auto 30px}
+.cta .btn{padding:14px 30px;font-size:15px}
+
+/* ===== title block ===== */
+footer{padding-block:30px 42px}
+.tb{border:1px solid var(--ink);display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--rule)}
+.tb>*{background:var(--paper);padding:14px 16px}
+.tb span{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-3);margin-block-end:6px}
+.tb b{font-weight:500;font-size:13.5px;word-break:break-word}
+.tb b.sm{font-size:11.5px;letter-spacing:-.01em}
+.tb a:hover b{color:var(--blue)}
+@media (max-width:900px){.tb{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== motion (deliberately minimal) ===== */
+.rv{opacity:0;transform:translateY(9px);transition:opacity .5s ease,transform .5s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
-<h1>Coming soon.</h1>
+<div class="spine">THEKINGOFAI · PROFILE · REV 1.0</div>
+
+<div class="sheet">
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="TheKingOfAI">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="#22319B" stroke-width="2.6" stroke-linecap="square"><path d="M5 25h22M5 25V15M16 25V7M27 25V15"/></g></svg>
+      <b>TheKingOf<i>AI</i></b>
+    </a>
+    <nav>
+      <a href="#cap" data-i18n="nav1">المسارات</a>
+      <a href="#work" data-i18n="nav2">الأعمال</a>
+      <a href="#how" data-i18n="nav3">طريقة الشغل</a>
+      <a href="#eng" data-i18n="nav4">التعاقد</a>
+    </nav>
+    <a class="btn btn-solid" href="#contact" data-i18n="nav_cta">تواصل</a>
+    <button class="btn lang" id="langBtn" type="button">EN</button>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== IDENTIFICATION ===== -->
+    <section class="hero">
+      <p class="idline rv">
+        <span data-i18n="id1">إبراهيم · مطوّر مستقل</span>
+        <b data-i18n="id2">٤ مسارات تنفيذ</b>
+        <span data-i18n="id3">عربي · إنجليزي</span>
+      </p>
+      <h1 class="rv"><span data-i18n="h1a">بابني أنظمة تشتغل.</span><em data-i18n="h1b">من الواجهة لحد الخوارزمية.</em></h1>
+      <p class="rv" data-i18n="hsub">موقع، منتج رقمي، سكربت أتمتة، تطبيق، أو نموذج كمي. بشتغل على المدى الكامل — التصميم والكود والاختبار والتوثيق — وبسلّم حاجة شغّالة ومملوكة لك بالكامل.</p>
+      <div class="hero-cta rv">
+        <a class="btn btn-solid" href="#contact" data-i18n="hcta1">ابدأ مشروع</a>
+        <a class="btn" href="#work" data-i18n="hcta2">شوف الأعمال</a>
+      </div>
+      <div class="specs rv">
+        <div><span data-i18n="s1k">المسارات</span><b data-i18n="s1v">ويب · كود · تطبيقات · كمّي</b></div>
+        <div><span data-i18n="s2k">التسليم</span><b data-i18n="s2v">كود + توثيق تشغيل</b></div>
+        <div><span data-i18n="s3k">الملكية</span><b data-i18n="s3v">للعميل بالكامل</b></div>
+        <div><span data-i18n="s4k">طريقة العمل</span><b data-i18n="s4v">عن بُعد · عالميًا</b></div>
+      </div>
+    </section>
+
+    <!-- ===== CAPABILITIES ===== -->
+    <section id="cap">
+      <p class="label"><span data-i18n="cap_label">مسارات التنفيذ</span></p>
+      <h2 class="rv" data-i18n="cap_h2">أربعة مسارات، ومعيار تسليم واحد.</h2>
+      <p class="lead rv" data-i18n="cap_lead" style="margin-block-end:38px">كل مسار له مخرجات محددة ومدة متوقعة. مفيش "حسب الظروف".</p>
+
+      <div class="cap rv">
+        <div class="code">TKA·01<i data-i18n="c1c">WEB</i></div>
+        <div><h3 data-i18n="c1h">مواقع ومنتجات رقمية</h3><p data-i18n="c1p">مواقع تعريفية، صفحات هبوط، متاجر بسيطة، ولوحات تحكم. أداء سريع على الموبايل وظهور نظيف في محركات البحث.</p></div>
+        <dl>
+          <dt data-i18n="k_out">المخرجات</dt><dd data-i18n="c1o">موقع منشور + كود المصدر + لوحة تحكم للمحتوى</dd>
+          <dt data-i18n="k_dur">المدة</dt><dd data-i18n="c1d">من يومين لأسبوعين حسب النطاق</dd>
+          <dt data-i18n="k_tech">التقنيات</dt><dd>HTML · CSS · JS · React · Cloudflare</dd>
+        </dl>
+      </div>
+
+      <div class="cap rv">
+        <div class="code">TKA·02<i data-i18n="c2c">CODE</i></div>
+        <div><h3 data-i18n="c2h">أكواد وسكربتات وأتمتة</h3><p data-i18n="c2p">سكربتات بتشيل شغل يدوي متكرر: معالجة بيانات، ربط أنظمة ببعضها، تقارير دورية، وتكاملات API.</p></div>
+        <dl>
+          <dt data-i18n="k_out">المخرجات</dt><dd data-i18n="c2o">سكربت موثّق + تعليمات تشغيل + سجل أخطاء</dd>
+          <dt data-i18n="k_dur">المدة</dt><dd data-i18n="c2d">من يوم لأسبوع</dd>
+          <dt data-i18n="k_tech">التقنيات</dt><dd>Python · Node.js · REST APIs · Git</dd>
+        </dl>
+      </div>
+
+      <div class="cap rv">
+        <div class="code">TKA·03<i data-i18n="c3c">APP</i></div>
+        <div><h3 data-i18n="c3h">تطبيقات وتصميم واجهات</h3><p data-i18n="c3p">تصميم وبناء واجهات استخدام: من رسم تدفق المستخدم لحد الواجهة النهائية القابلة للتشغيل والاختبار.</p></div>
+        <dl>
+          <dt data-i18n="k_out">المخرجات</dt><dd data-i18n="c3o">نموذج تفاعلي + واجهة مبنية + نظام تصميم</dd>
+          <dt data-i18n="k_dur">المدة</dt><dd data-i18n="c3d">من أسبوع لثلاثة أسابيع</dd>
+          <dt data-i18n="k_tech">التقنيات</dt><dd>React · Design systems · Figma-ready specs</dd>
+        </dl>
+      </div>
+
+      <div class="cap rv">
+        <div class="code">TKA·04<i data-i18n="c4c">QUANT</i></div>
+        <div><h3 data-i18n="c4h">خوارزميات ونماذج كمية</h3><p data-i18n="c4p">تحويل فكرة تداول أو قاعدة قرار لنظام مكتوب: منطق واضح، إدارة مخاطر، اختبار على بيانات تاريخية، وتقرير نتائج أمين.</p></div>
+        <dl>
+          <dt data-i18n="k_out">المخرجات</dt><dd data-i18n="c4o">كود الاستراتيجية + نتائج الاختبار + وثيقة المخاطر</dd>
+          <dt data-i18n="k_dur">المدة</dt><dd data-i18n="c4d">من أسبوعين لشهر</dd>
+          <dt data-i18n="k_tech">التقنيات</dt><dd>MQL5 · MetaTrader 5 · Python · Backtesting</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== WORK ===== -->
+    <section id="work">
+      <p class="label"><span data-i18n="w_label">سجل الأعمال</span></p>
+      <h2 class="rv" data-i18n="w_h2">اللي منشور، تقدر تفتحه. واللي خاص، مكتوب إنه خاص.</h2>
+      <p class="lead rv" data-i18n="w_lead" style="margin-block-end:34px">مفيش شعارات عملاء ولا أرقام مش قابلة للتحقق. الحالة مكتوبة جنب كل بند.</p>
+      <table class="tbl rv">
+        <thead><tr>
+          <th data-i18n="th1">البند</th><th data-i18n="th2">المسار</th><th data-i18n="th3">الحالة</th><th data-i18n="th4">الرابط</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="nm">Dany Real Estate</span><span class="ds" data-i18n="wr1">موقع مكتب عقاري: صفحة رئيسية، عرض عقارات، وتواصل مباشر بواتساب.</span></td>
+            <td><span class="tag">WEB</span></td>
+            <td><span class="tag live" data-i18n="st_live">منشور</span></td>
+            <td><a class="open" href="https://thekingofai.workers.dev/dany-real-estate/" target="_blank" rel="noopener" data-i18n="open">افتح ↗</a></td>
+          </tr>
+          <tr>
+            <td><span class="nm">The Egypt Real Estate</span><span class="ds" data-i18n="wr2">واجهة إنجليزية موجّهة للمشترين من خارج مصر، مع عرض المشاريع بالصور.</span></td>
+            <td><span class="tag">WEB</span></td>
+            <td><span class="tag live" data-i18n="st_live">منشور</span></td>
+            <td><a class="open" href="https://thekingofai.workers.dev/the-egypt-real-estate/" target="_blank" rel="noopener" data-i18n="open">افتح ↗</a></td>
+          </tr>
+          <tr>
+            <td><span class="nm">Egypt Realtor</span><span class="ds" data-i18n="wr3">نسخة خفيفة مبنية لسرعة الفتح على شبكات الموبايل الضعيفة.</span></td>
+            <td><span class="tag">WEB</span></td>
+            <td><span class="tag live" data-i18n="st_live">منشور</span></td>
+            <td><a class="open" href="https://thekingofai.workers.dev/egypt-realtor/" target="_blank" rel="noopener" data-i18n="open">افتح ↗</a></td>
+          </tr>
+          <tr>
+            <td><span class="nm" data-i18n="wn4">نظام تداول آلي — MetaTrader 5</span><span class="ds" data-i18n="wr4">استراتيجية مكتوبة بـ MQL5 مع طبقة إدارة مخاطر مستقلة عن منطق الدخول.</span></td>
+            <td><span class="tag">QUANT</span></td>
+            <td><span class="tag priv" data-i18n="st_priv">خاص</span></td>
+            <td><span class="muted" data-i18n="on_req">متاح للعرض عند الطلب</span></td>
+          </tr>
+          <tr>
+            <td><span class="nm" data-i18n="wn5">طبقة أتمتة لرصد يومي للسوق</span><span class="ds" data-i18n="wr5">تجميع بيانات ومحفزات يومية وتحويلها لتقرير منظّم بجدول زمني ثابت.</span></td>
+            <td><span class="tag">CODE</span></td>
+            <td><span class="tag priv" data-i18n="st_priv">خاص</span></td>
+            <td><span class="muted" data-i18n="on_req">متاح للعرض عند الطلب</span></td>
+          </tr>
+          <tr>
+            <td><span class="nm" data-i18n="wn6">معمارية نظام كمي متكامل</span><span class="ds" data-i18n="wr6">تصميم طبقات نظام تداول مؤسسي: فصل الإشارة عن التنفيذ عن الحوكمة.</span></td>
+            <td><span class="tag">QUANT</span></td>
+            <td><span class="tag dev" data-i18n="st_dev">تحت التطوير</span></td>
+            <td><span class="muted">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== HOW ===== -->
+    <section id="how">
+      <p class="label"><span data-i18n="h_label">طريقة الشغل</span></p>
+      <h2 class="rv" data-i18n="h_h2">خمس مراحل، كل واحدة ليها مخرج مكتوب.</h2>
+      <p class="lead rv" data-i18n="h_lead">مفيش مرحلة بتعدّي من غير حاجة تقدر تشوفها وتوافق عليها.</p>
+      <div class="flow rv">
+        <div><span class="n">01</span><h4 data-i18n="f1h">تحديد النطاق</h4><p data-i18n="f1p">مكالمة قصيرة، وبعدها وثيقة نطاق مكتوبة: إيه اللي داخل وإيه اللي بره.</p></div>
+        <div><span class="n">02</span><h4 data-i18n="f2h">النسخة الأولى</h4><p data-i18n="f2p">أسرع نسخة قابلة للتشغيل، عشان نتناقش على حاجة موجودة مش على كلام.</p></div>
+        <div><span class="n">03</span><h4 data-i18n="f3h">المراجعة</h4><p data-i18n="f3p">جولات تعديل محددة العدد، وكل تعديل مسجّل في سجل التغييرات.</p></div>
+        <div><span class="n">04</span><h4 data-i18n="f4h">الاختبار</h4><p data-i18n="f4p">اختبار قبل التسليم: أداء، حالات الخطأ، والسلوك لما حاجة تفشل.</p></div>
+        <div><span class="n">05</span><h4 data-i18n="f5h">التسليم</h4><p data-i18n="f5p">الكود والحسابات والدومين باسمك، مع دليل تشغيل تقدر تديه لأي مطوّر تاني.</p></div>
+      </div>
+    </section>
+
+    <!-- ===== STANDARDS ===== -->
+    <section id="std">
+      <p class="label"><span data-i18n="sd_label">التزامات ثابتة</span></p>
+      <h2 class="rv" data-i18n="sd_h2">ده اللي بيفرق بين شغل يتسلّم وشغل يتصان.</h2>
+      <div class="rules rv">
+        <ul>
+          <li><b>01</b><span data-i18n="r1">مفيش سطر كود قبل ما النطاق يتكتب ويتوافق عليه.</span></li>
+          <li><b>02</b><span data-i18n="r2">كل مشروع على Git من أول يوم — كل تغيير له سجل ونقطة رجوع.</span></li>
+          <li><b>03</b><span data-i18n="r3">مراجعة كود كاملة قبل التسليم، مش بعد ما تشتكي.</span></li>
+        </ul>
+        <ul>
+          <li><b>04</b><span data-i18n="r4">توثيق مكتوب مع كل تسليم: كيف يشتغل، كيف يتعدّل، وكيف يتصلّح.</span></li>
+          <li><b>05</b><span data-i18n="r5">الملكية الفكرية كلها تنتقل لك — كود، تصميم، وحسابات.</span></li>
+          <li><b>06</b><span data-i18n="r6">لو حاجة اتأخرت أو مشيت غلط، بتعرف منّي إنت الأول.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== ENGAGEMENT ===== -->
+    <section id="eng">
+      <p class="label"><span data-i18n="e_label">صيغ التعاقد</span></p>
+      <h2 class="rv" data-i18n="e_h2">اختار الصيغة اللي تناسب حجم الشغل.</h2>
+      <p class="lead rv" data-i18n="e_lead" style="margin-block-end:34px">السعر بيتحدد بعد ما النطاق يتكتب — مش قبله. اللي بيسعّر قبل ما يفهم، بيغيّر السعر بعدين.</p>
+      <div class="eng rv">
+        <div>
+          <span class="code">MODE·A</span>
+          <h3 data-i18n="e1h">مشروع بنطاق ثابت</h3>
+          <p data-i18n="e1p">لما يكون المطلوب واضح وله بداية ونهاية.</p>
+          <ul>
+            <li data-i18n="e1a">سعر ثابت متفق قبل البدء</li>
+            <li data-i18n="e1b">جدول تسليم بمراحل</li>
+            <li data-i18n="e1c">جولتا تعديل ضمن السعر</li>
+          </ul>
+          <div class="fee" data-i18n="e_fee">التسعير: بعد وثيقة النطاق</div>
+          <a class="btn" href="#contact" data-i18n="e_btn">اطلب عرض سعر</a>
+        </div>
+        <div>
+          <span class="code">MODE·B</span>
+          <h3 data-i18n="e2h">تطوير مستمر</h3>
+          <p data-i18n="e2p">لما الشغل بيتغيّر ومحتاج حد يمشي معاه شهر بشهر.</p>
+          <ul>
+            <li data-i18n="e2a">عدد ساعات شهري متفق عليه</li>
+            <li data-i18n="e2b">أولويات بتتحدد كل أسبوع</li>
+            <li data-i18n="e2c">تقرير شهري بالمنجز والمتبقي</li>
+          </ul>
+          <div class="fee" data-i18n="e_fee2">التسعير: اشتراك شهري</div>
+          <a class="btn" href="#contact" data-i18n="e_btn">اطلب عرض سعر</a>
+        </div>
+        <div>
+          <span class="code">MODE·C</span>
+          <h3 data-i18n="e3h">مراجعة واستشارة</h3>
+          <p data-i18n="e3p">عندك نظام شغّال ومحتاج رأي تقني محايد فيه.</p>
+          <ul>
+            <li data-i18n="e3a">مراجعة كود أو معمارية</li>
+            <li data-i18n="e3b">تقرير مكتوب بالمخاطر والأولويات</li>
+            <li data-i18n="e3c">جلسة نقاش على التقرير</li>
+          </ul>
+          <div class="fee" data-i18n="e_fee3">التسعير: بالجلسة أو بالتقرير</div>
+          <a class="btn" href="#contact" data-i18n="e_btn">اطلب عرض سعر</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+      <div class="about">
+        <div>
+          <p class="label"><span data-i18n="a_label">عن الشخص</span></p>
+          <h2 class="rv" data-i18n="a_h2">إبراهيم — مطوّر مستقل.</h2>
+        </div>
+        <div class="rv">
+          <p data-i18n="a1"><strong>بشتغل لوحدي، وده قرار مش ظرف.</strong> إنت بتتكلم مع اللي هيبني الحاجة بنفسه، من أول المكالمة لحد التسليم. مفيش وسيط ومفيش تسليم لحد تاني بعد ما تدفع.</p>
+          <p data-i18n="a2">بستخدم أدوات الذكاء الاصطناعي كجزء من طريقة البناء — مش سر، وده سبب إن السرعة والسعر مختلفين. لكن القرار المعماري والمراجعة النهائية مسؤوليتي أنا، وكل سطر بيتقرا قبل ما يتسلّم.</p>
+          <p data-i18n="a3">خلفيتي الأساسية أنظمة التداول الكمية — وده علّمني حاجة بتنفع في أي مشروع: النظام اللي مش متختبر مش نظام، والرقم اللي مش قابل للتحقق مش رقم.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta" id="contact">
+      <h2 class="rv" data-i18n="ct_h2">ابعتلي اللي محتاجه، وأرد بنطاق مكتوب.</h2>
+      <p class="lead rv" data-i18n="ct_lead">من غير التزام. لو الشغل مش من تخصصي، هقولك بصراحة وأدلّك على الاتجاه الصح.</p>
+      <a class="btn btn-solid rv" href="https://wa.me/201099899660" data-i18n="ct_btn">ابدأ على واتساب</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="tb">
+      <div><span data-i18n="tb1">الاسم</span><b>Ebrahem</b></div>
+      <div><span data-i18n="tb2">البراند</span><b>TheKingOfAI</b></div>
+      <a href="https://wa.me/201099899660"><span data-i18n="tb3">واتساب</span><b>+20 109 989 9660</b></a>
+      <a href="mailto:The.KingOfAI@outlook.com"><span data-i18n="tb4">البريد</span><b class="sm">The.KingOfAI@outlook.com</b></a>
+      <div><span data-i18n="tb5">الإصدار</span><b>REV 1.0 — 2026</b></div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+/* ===== bilingual ===== */
+var EN={
+ nav1:"Capabilities",nav2:"Work",nav3:"Process",nav4:"Engagement",nav_cta:"Contact",
+ id1:"Ebrahem · Independent developer",id2:"4 delivery tracks",id3:"Arabic · English",
+ h1a:"I build systems that work.",h1b:"From the interface to the algorithm.",
+ hsub:"A website, a digital product, an automation script, an app, or a quantitative model. I work the full span — design, code, testing, documentation — and hand over something running that you own outright.",
+ hcta1:"Start a project",hcta2:"See the work",
+ s1k:"Tracks",s1v:"Web · Code · Apps · Quant",
+ s2k:"Delivery",s2v:"Code + operating docs",
+ s3k:"Ownership",s3v:"Fully the client's",
+ s4k:"How I work",s4v:"Remote · worldwide",
+ cap_label:"Delivery tracks",cap_h2:"Four tracks, one delivery standard.",
+ cap_lead:"Every track has defined outputs and an expected duration. Nothing is left to circumstance.",
+ k_out:"Outputs",k_dur:"Duration",k_tech:"Stack",
+ c1c:"WEB",c1h:"Websites and digital products",
+ c1p:"Company sites, landing pages, small stores, and dashboards. Fast on mobile and clean for search engines.",
+ c1o:"Published site + source code + a panel to edit content",c1d:"Two days to two weeks by scope",
+ c2c:"CODE",c2h:"Code, scripts and automation",
+ c2p:"Scripts that remove repeated manual work: data processing, joining systems together, scheduled reports, and API integrations.",
+ c2o:"Documented script + run instructions + error log",c2d:"One day to one week",
+ c3c:"APP",c3h:"Apps and interface design",
+ c3p:"Designing and building interfaces: from the user flow on paper to a running, testable interface.",
+ c3o:"Interactive prototype + built interface + design system",c3d:"One to three weeks",
+ c4c:"QUANT",c4h:"Algorithms and quantitative models",
+ c4p:"Turning a trading idea or a decision rule into a written system: clear logic, risk management, historical testing, and an honest results report.",
+ c4o:"Strategy code + test results + a risk document",c4d:"Two weeks to a month",
+ w_label:"Work log",w_h2:"What is public, you can open. What is private, says so.",
+ w_lead:"No client logos and no numbers you cannot verify. Status is stated next to every item.",
+ th1:"Item",th2:"Track",th3:"Status",th4:"Link",
+ st_live:"Live",st_priv:"Private",st_dev:"In build",open:"Open ↗",on_req:"Shown on request",
+ wr1:"Real estate office site: home page, property listings, direct WhatsApp contact.",
+ wr2:"English-first interface aimed at buyers outside Egypt, projects shown in photos.",
+ wr3:"A light build made to open fast on weak mobile networks.",
+ wn4:"Automated trading system — MetaTrader 5",
+ wr4:"A strategy written in MQL5 with a risk layer kept separate from entry logic.",
+ wn5:"Automation layer for daily market monitoring",
+ wr5:"Collects daily data and catalysts and turns them into a structured report on a fixed schedule.",
+ wn6:"Architecture for a full quantitative system",
+ wr6:"Layered design for an institutional trading system: signal, execution and governance kept apart.",
+ h_label:"Process",h_h2:"Five stages, each with a written output.",
+ h_lead:"No stage passes without something you can see and approve.",
+ f1h:"Scope",f1p:"A short call, then a written scope document: what is in and what is out.",
+ f2h:"First version",f2p:"The fastest runnable version, so we argue about something real instead of talk.",
+ f3h:"Review",f3p:"A fixed number of revision rounds, each one recorded in a change log.",
+ f4h:"Testing",f4p:"Tested before handover: performance, error cases, and behaviour when something fails.",
+ f5h:"Handover",f5p:"Code, accounts and domain in your name, with a guide any other developer can pick up.",
+ sd_label:"Fixed commitments",sd_h2:"This is what separates work that ships from work that survives.",
+ r1:"No line of code before the scope is written and agreed.",
+ r2:"Every project on Git from day one — every change logged, every point recoverable.",
+ r3:"Full code review before handover, not after you complain.",
+ r4:"Written documentation with every delivery: how it runs, how to change it, how to fix it.",
+ r5:"All intellectual property transfers to you — code, design and accounts.",
+ r6:"If something slips or goes wrong, you hear it from me first.",
+ e_label:"Engagement modes",e_h2:"Pick the mode that fits the size of the work.",
+ e_lead:"Price is set after the scope is written, not before. Anyone who prices before understanding will change the price later.",
+ e1h:"Fixed-scope project",e1p:"When the ask is clear and has a start and an end.",
+ e1a:"Fixed price agreed before starting",e1b:"Milestone delivery schedule",e1c:"Two revision rounds included",
+ e_fee:"Pricing: after the scope document",
+ e2h:"Ongoing development",e2p:"When the work keeps changing and needs someone month to month.",
+ e2a:"An agreed monthly hour block",e2b:"Priorities set each week",e2c:"Monthly report on done and remaining",
+ e_fee2:"Pricing: monthly retainer",
+ e3h:"Review and consulting",e3p:"You have a running system and want a neutral technical read on it.",
+ e3a:"Code or architecture review",e3b:"Written report of risks and priorities",e3c:"A session to walk through it",
+ e_fee3:"Pricing: per session or per report",e_btn:"Request a quote",
+ a_label:"About",a_h2:"Ebrahem — independent developer.",
+ a1:"I work alone, and that is a decision rather than a circumstance. You speak to the person who builds it, from the first call to handover. No middleman and no handoff the moment you pay.",
+ a2:"I use AI tools as part of how I build — no secret there, and it is why the speed and the price are different. But the architectural decisions and the final review are mine, and every line is read before it ships.",
+ a3:"My core background is quantitative trading systems, which taught me something that applies to any project: a system that is not tested is not a system, and a number you cannot verify is not a number.",
+ ct_h2:"Send me what you need, I reply with a written scope.",
+ ct_lead:"No commitment. If the work is outside what I do well, I will say so and point you the right way.",
+ ct_btn:"Start on WhatsApp",
+ tb1:"Name",tb2:"Brand",tb3:"WhatsApp",tb4:"Email",tb5:"Revision"
+};
+var nodes=document.querySelectorAll("[data-i18n]"),AR={};
+nodes.forEach(function(n){AR[n.dataset.i18n]=n.textContent});
+var lang="ar",btn=document.getElementById("langBtn");
+btn.addEventListener("click",function(){
+  lang=lang==="ar"?"en":"ar";
+  var d=lang==="ar"?AR:EN;
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+  nodes.forEach(function(n){ if(d[n.dataset.i18n]) n.textContent=d[n.dataset.i18n]; });
+  btn.textContent=lang==="ar"?"EN":"ع";
+  document.title=lang==="ar"
+    ?"TheKingOfAI — إبراهيم · مطوّر أنظمة مستقل"
+    :"TheKingOfAI — Ebrahem · Independent systems developer";
+});
+
+/* ===== reveal (minimal by design) ===== */
+if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
+  },{threshold:.1});
+  document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
+}else{
+  document.querySelectorAll(".rv").forEach(function(el){el.classList.add("in")});
+}
+</script>
 </body>
 </html>
