@@ -7,7 +7,6 @@ import android.media.AudioManager
 import android.media.AudioRecord
 import android.media.AudioTrack
 import android.media.MediaRecorder
-import android.media.audiofx.AcousticEchoCanceler
 import android.media.audiofx.NoiseSuppressor
 import android.util.Log
 import com.kingofai.voicechanger.dsp.Echo
@@ -98,11 +97,10 @@ class VoiceEngine(
             return
         }
 
-        // Reduce feedback howl when using the speaker.
+        // Only suppress noise; keep the acoustic echo canceler OFF because in
+        // live-monitor mode it would treat the processed playback as "echo" and
+        // cancel the very effect we are trying to hear.
         runCatching {
-            if (AcousticEchoCanceler.isAvailable()) {
-                AcousticEchoCanceler.create(rec.audioSessionId)?.enabled = true
-            }
             if (NoiseSuppressor.isAvailable()) {
                 NoiseSuppressor.create(rec.audioSessionId)?.enabled = true
             }

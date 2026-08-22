@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="غيّر صوتك لحظياً. أثناء المكالمة فعّل وضع المكالمة وشغّل السماعة الخارجية ليسمعك الطرف الآخر."
+            android:text="للتجربة: أطفئ «وضع المكالمة»، وصّل سماعة أذن سلكية، اضغط تشغيل وتحدّث لتسمع صوتك متغيّراً. ملاحظة: مكالمات الشبكة العادية لا يمكن تغيير صوتها (قيد من أندرويد)."
             android:textColor="#9AA4B2"
             android:textSize="13sp"
             android:gravity="center"
