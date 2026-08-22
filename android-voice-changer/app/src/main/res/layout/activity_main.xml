@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:fillViewport="true"
+    android:background="#0E1116">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎙️ مغيّر الصوت"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="غيّر صوتك لحظياً. أثناء المكالمة فعّل وضع المكالمة وشغّل السماعة الخارجية ليسمعك الطرف الآخر."
+            android:textColor="#9AA4B2"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <GridLayout
+            android:id="@+id/effectsGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:useDefaultMargins="false" />
+
+        <TextView
+            android:id="@+id/intensityLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="شدة المؤثر: 100%"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:paddingTop="20dp" />
+
+        <SeekBar
+            android:id="@+id/intensitySeek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="100" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/callModeSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="وضع المكالمة (توجيه الصوت للمكالمة + سماعة خارجية)"
+            android:textColor="#FFFFFF"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="متوقف"
+            android:textColor="#9AA4B2"
+            android:gravity="center"
+            android:paddingTop="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toggleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="▶️ تشغيل"
+            android:textSize="18sp"
+            android:layout_marginTop="12dp"
+            app:cornerRadius="16dp" />
+
+    </LinearLayout>
+</ScrollView>

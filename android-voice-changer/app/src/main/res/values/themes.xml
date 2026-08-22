@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.VoiceChanger" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#4C8DFF</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:statusBarColor">#0E1116</item>
+    </style>
+</resources>
