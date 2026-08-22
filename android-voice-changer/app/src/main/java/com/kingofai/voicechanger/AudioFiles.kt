@@ -49,24 +49,23 @@ object AudioFiles {
             if (!inputDone) {
                 val inIndex = codec.dequeueInputBuffer(10000)
                 if (inIndex >= 0) {
-                    val inBuf = codec.getInputBuffer(inIndex)!!
-                    inBuf.clear()
-                    val capacity = inBuf.capacity()
                     val remaining = pcm.size - inputOffset
-                    val chunk = minOf(capacity, remaining)
-                    if (chunk > 0) {
-                        inBuf.put(pcm, inputOffset, chunk)
-                        val ptsUs = (inputOffset / bytesPerUsDenom * 1_000_000).toLong()
-                        codec.queueInputBuffer(inIndex, 0, chunk, ptsUs, 0)
-                        inputOffset += chunk
-                        presentationUs = ptsUs
-                    }
-                    if (inputOffset >= pcm.size) {
+                    if (remaining <= 0) {
+                        // Signal end of stream on its own buffer.
                         codec.queueInputBuffer(
                             inIndex, 0, 0, presentationUs,
                             MediaCodec.BUFFER_FLAG_END_OF_STREAM
                         )
                         inputDone = true
+                    } else {
+                        val inBuf = codec.getInputBuffer(inIndex)!!
+                        inBuf.clear()
+                        val chunk = minOf(inBuf.capacity(), remaining)
+                        inBuf.put(pcm, inputOffset, chunk)
+                        val ptsUs = (inputOffset / bytesPerUsDenom * 1_000_000).toLong()
+                        codec.queueInputBuffer(inIndex, 0, chunk, ptsUs, 0)
+                        inputOffset += chunk
+                        presentationUs = ptsUs
                     }
                 }
             }
