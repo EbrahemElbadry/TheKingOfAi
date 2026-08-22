@@ -62,6 +62,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.rootDiagButton.setOnClickListener { runRootDiagnostics() }
 
+        binding.voiceNoteButton.setOnClickListener {
+            startActivity(Intent(this, VoiceNoteActivity::class.java))
+        }
+
         refreshUi()
     }
 

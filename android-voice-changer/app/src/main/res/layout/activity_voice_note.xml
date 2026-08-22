@@ -16,9 +16,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🎙️ مغيّر الصوت"
+            android:text="🎤 مغيّر الرسائل الصوتية"
             android:textColor="#FFFFFF"
-            android:textSize="26sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:gravity="center"
             android:paddingBottom="4dp" />
@@ -26,28 +26,37 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="للتجربة: أطفئ «وضع المكالمة»، وصّل سماعة أذن سلكية، اضغط تشغيل وتحدّث لتسمع صوتك متغيّراً. ملاحظة: مكالمات الشبكة العادية لا يمكن تغيير صوتها (قيد من أندرويد)."
+            android:text="١) سجّل صوتك  ٢) اختر مؤثراً  ٣) استمع  ٤) شارك على واتساب"
             android:textColor="#9AA4B2"
             android:textSize="13sp"
             android:gravity="center"
             android:paddingBottom="16dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/voiceNoteButton"
+            android:id="@+id/recordButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🎤 مغيّر الرسائل الصوتية (شارك على واتساب)"
-            android:textSize="15sp"
-            android:layout_marginBottom="18dp"
+            android:text="🔴 ابدأ التسجيل"
+            android:textSize="18sp"
             app:cornerRadius="16dp" />
+
+        <TextView
+            android:id="@+id/recordStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="لا يوجد تسجيل بعد"
+            android:textColor="#9AA4B2"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="8dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="— أو المعاينة المباشرة —"
-            android:textColor="#9AA4B2"
-            android:gravity="center"
-            android:paddingBottom="10dp" />
+            android:text="اختر المؤثر:"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:paddingTop="8dp" />
 
         <GridLayout
             android:id="@+id/effectsGrid"
@@ -63,7 +72,7 @@
             android:text="شدة المؤثر: 100%"
             android:textColor="#FFFFFF"
             android:textSize="15sp"
-            android:paddingTop="20dp" />
+            android:paddingTop="16dp" />
 
         <SeekBar
             android:id="@+id/intensitySeek"
@@ -72,57 +81,24 @@
             android:max="100"
             android:progress="100" />
 
-        <com.google.android.material.materialswitch.MaterialSwitch
-            android:id="@+id/callModeSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="وضع المكالمة (توجيه الصوت للمكالمة + سماعة خارجية)"
-            android:textColor="#FFFFFF"
-            android:paddingTop="16dp"
-            android:paddingBottom="8dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="مستوى الميكروفون (لو ثابت عند الصفر أثناء المكالمة فالنظام يحجب الالتقاط):"
-            android:textColor="#FFFFFF"
-            android:textSize="13sp"
-            android:paddingTop="16dp" />
-
-        <ProgressBar
-            android:id="@+id/levelBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:max="100"
-            android:progress="0" />
-
-        <TextView
-            android:id="@+id/statusText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="متوقف"
-            android:textColor="#9AA4B2"
-            android:gravity="center"
-            android:paddingTop="12dp" />
-
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/toggleButton"
+            android:id="@+id/playButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="▶️ تشغيل"
-            android:textSize="18sp"
-            android:layout_marginTop="12dp"
+            android:text="▶️ استماع للنتيجة"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:enabled="false"
             app:cornerRadius="16dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/rootDiagButton"
-            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:id="@+id/shareButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🔧 تشخيص الروت (لتجربة المكالمات)"
-            android:textSize="14sp"
+            android:text="📤 حفظ ومشاركة"
+            android:textSize="16sp"
             android:layout_marginTop="10dp"
+            android:enabled="false"
             app:cornerRadius="16dp" />
 
     </LinearLayout>
