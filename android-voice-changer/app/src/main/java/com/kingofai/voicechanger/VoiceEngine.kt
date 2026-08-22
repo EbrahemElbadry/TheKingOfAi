@@ -7,7 +7,7 @@ import android.media.AudioManager
 import android.media.AudioRecord
 import android.media.AudioTrack
 import android.media.MediaRecorder
-import android.media.audiofx.NoiseSuppressor
+import android.os.Build
 import android.util.Log
 import com.kingofai.voicechanger.dsp.Echo
 import com.kingofai.voicechanger.dsp.LowPass
@@ -86,14 +86,18 @@ class VoiceEngine(
             return
         }
 
-        val bufSize = maxOf(minRecBuf, minPlayBuf) * 2
+        // Process in small chunks to keep latency low. Record buffer is kept
+        // larger (guards against overrun); playback buffer is kept small.
+        val chunkFrames = 1024
+        val recBufBytes = maxOf(minRecBuf, chunkFrames * 2 * 4)
+        val playBufBytes = maxOf(minPlayBuf, chunkFrames * 2 * 2)
 
         val rec = AudioRecord(
             MediaRecorder.AudioSource.VOICE_COMMUNICATION,
             sampleRate,
             AudioFormat.CHANNEL_IN_MONO,
             AudioFormat.ENCODING_PCM_16BIT,
-            bufSize
+            recBufBytes
         )
         if (rec.state != AudioRecord.STATE_INITIALIZED) {
             onError("تعذّر تهيئة الميكروفون")
@@ -101,21 +105,15 @@ class VoiceEngine(
             return
         }
 
-        // Only suppress noise; keep the acoustic echo canceler OFF because in
-        // live-monitor mode it would treat the processed playback as "echo" and
-        // cancel the very effect we are trying to hear.
-        runCatching {
-            if (NoiseSuppressor.isAvailable()) {
-                NoiseSuppressor.create(rec.audioSessionId)?.enabled = true
-            }
-        }
+        // Keep noise suppression OFF too: some implementations gate/attenuate
+        // the signal, which made the monitored voice sound weak.
 
         val usage = if (routeToCall) AudioAttributes.USAGE_VOICE_COMMUNICATION
         else AudioAttributes.USAGE_MEDIA
         val contentType = if (routeToCall) AudioAttributes.CONTENT_TYPE_SPEECH
         else AudioAttributes.CONTENT_TYPE_MUSIC
 
-        val trk = AudioTrack.Builder()
+        val trkBuilder = AudioTrack.Builder()
             .setAudioAttributes(
                 AudioAttributes.Builder()
                     .setUsage(usage)
@@ -129,9 +127,13 @@ class VoiceEngine(
                     .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
                     .build()
             )
-            .setBufferSizeInBytes(bufSize)
+            .setBufferSizeInBytes(playBufBytes)
             .setTransferMode(AudioTrack.MODE_STREAM)
-            .build()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            trkBuilder.setPerformanceMode(AudioTrack.PERFORMANCE_MODE_LOW_LATENCY)
+        }
+        val trk = trkBuilder.build()
+        runCatching { trk.setVolume(AudioTrack.getMaxVolume()) }
 
         if (routeToCall) {
             runCatching {
@@ -157,12 +159,11 @@ class VoiceEngine(
         trk.play()
 
         worker = thread(name = "VoiceEngineLoop", priority = Thread.MAX_PRIORITY) {
-            loop(bufSize)
+            loop(chunkFrames)
         }
     }
 
-    private fun loop(bufSize: Int) {
-        val frames = bufSize / 2 // 16-bit -> shorts
+    private fun loop(frames: Int) {
         val shortBuf = ShortArray(frames)
         val floatBuf = FloatArray(frames)
         val rec = record ?: return
@@ -193,9 +194,12 @@ class VoiceEngine(
                 lowPass.process(floatBuf, read)
                 echo.process(floatBuf, read)
 
-                // Convert back with clipping.
+                // Make-up gain + soft saturation: boosts quiet speech and keeps
+                // the output within range without harsh hard-clipping.
                 for (i in 0 until read) {
-                    val v = (floatBuf[i] * 32768f)
+                    val x = floatBuf[i] * OUTPUT_GAIN
+                    val soft = x / (1f + kotlin.math.abs(x)) // -> (-1,1)
+                    val v = soft * 32000f
                     shortBuf[i] = when {
                         v > 32767f -> 32767
                         v < -32768f -> -32768
@@ -232,5 +236,7 @@ class VoiceEngine(
 
     companion object {
         private const val TAG = "VoiceEngine"
+        /** Make-up gain applied before soft saturation to raise loudness. */
+        private const val OUTPUT_GAIN = 4.0f
     }
 }
