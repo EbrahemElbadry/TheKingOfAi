@@ -60,6 +60,8 @@ class MainActivity : AppCompatActivity() {
             if (isRunning) stopEngine() else requestAndStart()
         }
 
+        binding.rootDiagButton.setOnClickListener { runRootDiagnostics() }
+
         refreshUi()
     }
 
@@ -156,6 +158,54 @@ class MainActivity : AppCompatActivity() {
             "يعمل الآن — تحدّث في الميكروفون"
         else
             "متوقف"
+    }
+
+    private fun runRootDiagnostics() {
+        toast("جارٍ طلب صلاحية الروت وجمع المعلومات…")
+        Thread {
+            val hasRoot = RootShell.isRootAvailable()
+            if (!hasRoot) {
+                runOnUiThread {
+                    toast("لم يتم منح صلاحية الروت (تأكد من وجود Magisk/su والموافقة على الطلب)")
+                }
+                return@Thread
+            }
+            val result = RootShell.collectAudioDiagnostics()
+            val text = result.output.ifBlank { "لا يوجد ناتج (exit=${result.exitCode})" }
+
+            // Save a copy to the app's external files dir for easy sharing.
+            val saved = runCatching {
+                val dir = getExternalFilesDir(null)
+                val f = java.io.File(dir, "voicechanger_diag.txt")
+                f.writeText(text)
+                f.absolutePath
+            }.getOrNull()
+
+            runOnUiThread { showDiagnosticsDialog(text, saved) }
+        }.start()
+    }
+
+    private fun showDiagnosticsDialog(text: String, savedPath: String?) {
+        val scroll = android.widget.ScrollView(this)
+        val tv = android.widget.TextView(this).apply {
+            setTextIsSelectable(true)
+            typeface = android.graphics.Typeface.MONOSPACE
+            textSize = 11f
+            setPadding(32, 32, 32, 32)
+            setText(text)
+        }
+        scroll.addView(tv)
+
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("تشخيص الصوت (انسخه وابعته للمطوّر)")
+            .setView(scroll)
+            .setPositiveButton("نسخ") { _, _ ->
+                val cb = getSystemService(CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                cb.setPrimaryClip(android.content.ClipData.newPlainText("diag", text))
+                toast("تم النسخ" + (savedPath?.let { "\nمحفوظ في: $it" } ?: ""))
+            }
+            .setNegativeButton("إغلاق", null)
+            .show()
     }
 
     private fun toast(msg: String) =

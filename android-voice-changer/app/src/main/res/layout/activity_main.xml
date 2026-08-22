@@ -98,5 +98,15 @@
             android:layout_marginTop="12dp"
             app:cornerRadius="16dp" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/rootDiagButton"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔧 تشخيص الروت (لتجربة المكالمات)"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            app:cornerRadius="16dp" />
+
     </LinearLayout>
 </ScrollView>
