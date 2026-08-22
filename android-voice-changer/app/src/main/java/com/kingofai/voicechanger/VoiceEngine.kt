@@ -61,7 +61,7 @@ class VoiceEngine(
         echo.feedback = 0.35f * this.intensity
 
         lowPass.enabled = effect.lowPass
-        lowPass.alpha = 0.20f
+        lowPass.alpha = effect.lowPassAlpha
     }
 
     @SuppressLint("MissingPermission")
