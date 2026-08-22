@@ -19,6 +19,15 @@ class MainActivity : AppCompatActivity() {
     private var selected: VoiceEffect = VoiceEffect.NONE
     private var isRunning = false
 
+    private val meterHandler = android.os.Handler(android.os.Looper.getMainLooper())
+    private val meterTick = object : Runnable {
+        override fun run() {
+            val level = EngineHolder.engine?.inputLevel ?: 0f
+            binding.levelBar.progress = (level * 100f).toInt()
+            meterHandler.postDelayed(this, 80)
+        }
+    }
+
     private val buttonByEffect = mutableMapOf<VoiceEffect, MaterialButton>()
 
     private val permissionLauncher = registerForActivityResult(
@@ -117,6 +126,7 @@ class MainActivity : AppCompatActivity() {
         }
         ContextCompat.startForegroundService(this, intent)
         isRunning = true
+        meterHandler.post(meterTick)
         refreshUi()
     }
 
@@ -130,7 +140,14 @@ class MainActivity : AppCompatActivity() {
             .apply { action = VoiceChangerService.ACTION_STOP }
         startService(intent)
         isRunning = false
+        meterHandler.removeCallbacks(meterTick)
+        binding.levelBar.progress = 0
         refreshUi()
+    }
+
+    override fun onDestroy() {
+        meterHandler.removeCallbacks(meterTick)
+        super.onDestroy()
     }
 
     private fun refreshUi() {

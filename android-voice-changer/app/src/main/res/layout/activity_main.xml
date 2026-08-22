@@ -65,6 +65,22 @@
             android:paddingBottom="8dp" />
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="مستوى الميكروفون (لو ثابت عند الصفر أثناء المكالمة فالنظام يحجب الالتقاط):"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:paddingTop="16dp" />
+
+        <ProgressBar
+            android:id="@+id/levelBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="0" />
+
+        <TextView
             android:id="@+id/statusText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

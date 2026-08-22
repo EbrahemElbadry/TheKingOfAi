@@ -42,6 +42,10 @@ class VoiceEngine(
 
     @Volatile private var intensity = 1.0f
 
+    /** Smoothed mic input level in 0..1, for a live meter in the UI. */
+    @Volatile var inputLevel: Float = 0f
+        private set
+
     val isRunning: Boolean get() = running
 
     /** Apply an effect preset. [intensity] in 0..1 scales pitch deviation and wet mix. */
@@ -133,6 +137,12 @@ class VoiceEngine(
             runCatching {
                 audioManager?.mode = AudioManager.MODE_IN_COMMUNICATION
                 audioManager?.isSpeakerphoneOn = true
+                // Max out the call stream so acoustic coupling to the call mic
+                // has the best possible chance on the speaker-trick path.
+                audioManager?.let { am ->
+                    val max = am.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL)
+                    am.setStreamVolume(AudioManager.STREAM_VOICE_CALL, max, 0)
+                }
             }
         }
 
@@ -163,8 +173,18 @@ class VoiceEngine(
                 val read = rec.read(shortBuf, 0, frames)
                 if (read <= 0) continue
 
-                // Convert to float [-1,1].
-                for (i in 0 until read) floatBuf[i] = shortBuf[i] / 32768f
+                // Convert to float [-1,1] and measure input RMS (0..1) so the
+                // UI can show whether the mic is actually being captured — this
+                // is the key diagnostic during a phone call.
+                var sumSq = 0.0
+                for (i in 0 until read) {
+                    val f = shortBuf[i] / 32768f
+                    floatBuf[i] = f
+                    sumSq += (f * f).toDouble()
+                }
+                val rms = Math.sqrt(sumSq / read).toFloat()
+                // Smooth and scale a bit for a livelier meter.
+                inputLevel = (inputLevel * 0.6f + rms * 0.4f * 3f).coerceIn(0f, 1f)
 
                 // DSP chain.
                 pitchShifter.process(floatBuf, read)
