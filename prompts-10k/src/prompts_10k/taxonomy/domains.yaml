@@ -1,0 +1,180 @@
+domains:
+  - id: "technology_it"
+    name_ar: "تقنية ومعلومات"
+    name_en: "Technology & IT"
+    weight: 1.6
+    target_prompts: 800
+    description_ar: "تطوير البرمجيات، البنية التحتية، الحوسبة السحابية، DevOps، هندسة المنصات"
+    description_en: "Software development, infrastructure, cloud computing, DevOps, platform engineering"
+    specializations_count: 7
+  
+  - id: "software_engineering"
+    name_ar: "هندسة برمجيات"
+    name_en: "Software Engineering"
+    weight: 1.6
+    target_prompts: 800
+    description_ar: "دورة حياة تطوير البرمجيات، هندسة المتطلبات، الاختبار، الصيانة، جودة الكود"
+    description_en: "SDLC, requirements engineering, testing, maintenance, code quality"
+    specializations_count: 8
+  
+  - id: "data_science_ai"
+    name_ar: "علوم بيانات وذكاء اصطناعي"
+    name_en: "Data Science & AI"
+    weight: 1.2
+    target_prompts: 600
+    description_ar: "تعلم الآلة، تعلم عميق، NLP، رؤية حاسوبية، MLOps، هندسة بيانات"
+    description_en: "ML, deep learning, NLP, computer vision, MLOps, data engineering"
+    specializations_count: 6
+  
+  - id: "cybersecurity"
+    name_ar: "أمن سيبراني"
+    name_en: "Cybersecurity"
+    weight: 0.8
+    target_prompts: 400
+    description_ar: "أمن التطبيقات، اختبار اختراق، استجابة حوادث، حوكمة، تشفير"
+    description_en: "AppSec, pentesting, incident response, governance, cryptography"
+    specializations_count: 5
+  
+  - id: "product_project_mgmt"
+    name_ar: "إدارة منتج ومشروع"
+    name_en: "Product & Project Management"
+    weight: 1.0
+    target_prompts: 500
+    description_ar: "إدارة منتجات Agile، Scrum، خرائط طريق، أولويات، استراتيجية منتج"
+    description_en: "Agile product management, Scrum, roadmaps, prioritization, product strategy"
+    specializations_count: 5
+  
+  - id: "design_ux_ui"
+    name_ar: "تصميم وتجربة مستخدم"
+    name_en: "Design & UX/UI"
+    weight: 1.0
+    target_prompts: 500
+    description_ar: "بحث مستخدم، نمذجة، أنظمة تصميم، إمكانية وصول، تصميم تفاعل"
+    description_en: "User research, prototyping, design systems, accessibility, interaction design"
+    specializations_count: 5
+  
+  - id: "marketing_growth"
+    name_ar: "تسويق ونمو"
+    name_en: "Marketing & Growth"
+    weight: 1.2
+    target_prompts: 600
+    description_ar: "تسويق رقمي، نمو، محتوى، SEO، تحليلات، تسويق منتج"
+    description_en: "Digital marketing, growth, content, SEO, analytics, product marketing"
+    specializations_count: 6
+  
+  - id: "sales_biz_dev"
+    name_ar: "مبيعات وتطوير أعمال"
+    name_en: "Sales & Business Development"
+    weight: 1.0
+    target_prompts: 500
+    description_ar: "مبيعات B2B، إدارة حسابات، شراكات، تفاوض، تمكين مبيعات"
+    description_en: "B2B sales, account management, partnerships, negotiation, sales enablement"
+    specializations_count: 5
+  
+  - id: "finance_accounting"
+    name_ar: "مالية ومحاسبة"
+    name_en: "Finance & Accounting"
+    weight: 0.8
+    target_prompts: 400
+    description_ar: "تقارير مالية، FP&A، ضرائب، تدقيق، امتثال، خزانة"
+    description_en: "Financial reporting, FP&A, tax, audit, compliance, treasury"
+    specializations_count: 5
+  
+  - id: "hr_recruiting"
+    name_ar: "موارد بشرية وتوظيف"
+    name_en: "HR & Recruiting"
+    weight: 0.8
+    target_prompts: 400
+    description_ar: "استقطاب مواهب، إدارة أداء، تعويضات، ثقافة، تعلم وتطوير"
+    description_en: "Talent acquisition, performance management, compensation, culture, L&D"
+    specializations_count: 5
+  
+  - id: "operations_supply_chain"
+    name_ar: "عمليات وسلسلة توريد"
+    name_en: "Operations & Supply Chain"
+    weight: 0.8
+    target_prompts: 400
+    description_ar: "لوجستيات، مخزون، مشتريات، تحسين عمليات، تخطيط طلب"
+    description_en: "Logistics, inventory, procurement, process optimization, demand planning"
+    specializations_count: 5
+  
+  - id: "education_training"
+    name_ar: "تعليم وتدريب"
+    name_en: "Education & Training"
+    weight: 0.8
+    target_prompts: 400
+    description_ar: "تصميم مناهج، تعلم إلكتروني، تقييم، تطوير مهني، تقنية تعليمية"
+    description_en: "Curriculum design, e-learning, assessment, professional development, edtech"
+    specializations_count: 4
+  
+  - id: "healthcare_medical"
+    name_ar: "رعاية صحية وطب"
+    name_en: "Healthcare & Medical"
+    weight: 1.0
+    target_prompts: 500
+    description_ar: "ممارسة سريرية، بحث طبي، تكنولوجيا صحية، جودة، معلوماتية صحية"
+    description_en: "Clinical practice, medical research, health tech, quality, health informatics"
+    specializations_count: 6
+  
+  - id: "legal_compliance"
+    name_ar: "قانون وامتثال"
+    name_en: "Legal & Compliance"
+    weight: 0.6
+    target_prompts: 300
+    description_ar: "قانون شركات، ملكية فكرية، تنظيم بيانات، عقود، تقاضي"
+    description_en: "Corporate law, IP, data regulation, contracts, litigation"
+    specializations_count: 4
+  
+  - id: "civil_engineering_arch"
+    name_ar: "هندسة مدنية ومعمارية"
+    name_en: "Civil Engineering & Architecture"
+    weight: 0.6
+    target_prompts: 300
+    description_ar: "تصميم إنشائي، إدارة إنشاءات، BIM، استدامة، تخطيط حضري"
+    description_en: "Structural design, construction management, BIM, sustainability, urban planning"
+    specializations_count: 4
+  
+  - id: "science_research"
+    name_ar: "علوم وبحث"
+    name_en: "Science & Research"
+    weight: 0.8
+    target_prompts: 400
+    description_ar: "منهجية بحث، نشر علمي، منح، تعاون علمي، أخلاقيات بحث"
+    description_en: "Research methodology, scientific publishing, grants, collaboration, research ethics"
+    specializations_count: 4
+  
+  - id: "media_journalism"
+    name_ar: "إعلام وصحافة"
+    name_en: "Media & Journalism"
+    weight: 0.6
+    target_prompts: 300
+    description_ar: "صحافة استقصائية، إعلام رقمي، تحقق، سرد قصص، إنتاج محتوى"
+    description_en: "Investigative journalism, digital media, fact-checking, storytelling, content production"
+    specializations_count: 4
+  
+  - id: "hospitality_tourism"
+    name_ar: "ضيافة وسياحة"
+    name_en: "Hospitality & Tourism"
+    weight: 0.4
+    target_prompts: 200
+    description_ar: "إدارة فنادق، تجربة ضيف، سياحة مستدامة، فعاليات، إيرادات"
+    description_en: "Hotel management, guest experience, sustainable tourism, events, revenue management"
+    specializations_count: 3
+  
+  - id: "real_estate_dev"
+    name_ar: "عقارات وتطوير"
+    name_en: "Real Estate & Development"
+    weight: 0.6
+    target_prompts: 300
+    description_ar: "تطوير عقاري، استثمار، تقييم، إدارة أملاك، تمويل عقاري"
+    description_en: "Property development, investment, valuation, property management, real estate finance"
+    specializations_count: 4
+  
+  - id: "consulting_strategy"
+    name_ar: "استشارات واستراتيجية"
+    name_en: "Consulting & Strategy"
+    weight: 1.0
+    target_prompts: 500
+    description_ar: "استراتيجية شركات، تحول رقمي، اندماج واستحواذ، عمليات، ابتكار"
+    description_en: "Corporate strategy, digital transformation, M&A, operations, innovation"
+    specializations_count: 5
