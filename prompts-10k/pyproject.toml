@@ -1,0 +1,122 @@
+[project]
+name = "prompts-10k"
+version = "1.0.0"
+description = "Professional 10,000 Prompts Generation System - Bilingual, Multi-format, Automated"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Prompts-10k Team"}]
+keywords = ["prompts", "llm", "generation", "ai", "bilingual", "arabic", "english"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    # Core
+    "jinja2>=3.1.4",
+    "pydantic>=2.8.0",
+    "pydantic-settings>=2.4.0",
+    "sqlalchemy>=2.0.30",
+    "alembic>=1.13.0",
+    "typer[all]>=0.12.0",
+    "rich>=13.7.0",
+    
+    # Data processing
+    "pandas>=2.2.0",
+    "openpyxl>=3.1.0",
+    "pyyaml>=6.0.1",
+    
+    # Quality & NLP
+    "rapidfuzz>=3.9.0",
+    "spacy>=3.7.0",
+    "langdetect>=1.0.9",
+    "sentence-transformers>=3.0.0",
+    
+    # Database
+    "sqlite-utils>=3.37.0",
+    
+    # Utilities
+    "tqdm>=4.66.0",
+    "python-dotenv>=1.0.0",
+    "orjson>=3.10.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=5.0.0",
+    "hypothesis>=6.100.0",
+    "ruff>=0.5.0",
+    "mypy>=1.10.0",
+    "pre-commit>=3.7.0",
+]
+postgres = [
+    "asyncpg>=0.29.0",
+    "psycopg2-binary>=2.9.0",
+]
+advanced-nlp = [
+    "transformers>=4.41.0",
+    "torch>=2.3.0",
+    "accelerate>=0.30.0",
+]
+
+[build-system]
+requires = ["setuptools>=70.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["prompts_10k*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "UP", "W", "C90", "ANN", "T20", "PTH", "ERA", "PL", "TRY", "SIM", "N", "ARG", "RET", "ASYNC", "LOG", "PERF", "TCH", "DTZ", "FURB", "ISC"]
+ignore = ["ANN101", "ANN102", "ARG001", "ARG002", "TRY003", "PTH123"]
+fix = true
+format.quote-style = "double"
+format.indent-style = "space"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+strict_optional = true
+no_implicit_optional = true
+check_untyped_defs = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["src/prompts_10k"]
+omit = ["tests/*", "*/migrations/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
+
+[tool.alembic]
+script_location = "src/prompts_10k/storage/migrations"
+version_locations = "src/prompts_10k/storage/migrations"
+
+[project.scripts]
+prompts-10k = "prompts_10k.cli.main:app"
+run-generation = "run_generation:main"
