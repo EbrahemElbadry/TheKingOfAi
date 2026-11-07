@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-label="Abstract terminal system study">
+  <rect width="960" height="620" fill="#0b0e0c"/>
+  <g stroke="#27332a" stroke-width="1" opacity=".8">
+    <path d="M0 100h960M0 200h960M0 300h960M0 400h960M0 500h960M120 0v620M240 0v620M360 0v620M480 0v620M600 0v620M720 0v620M840 0v620"/>
+  </g>
+  <path d="M95 490L300 250l135 120 155-205 275 245" fill="none" stroke="#b7ff3c" stroke-width="3"/>
+  <path d="M95 490h770M300 250v240M590 165v325" fill="none" stroke="#8e9b91" stroke-dasharray="5 7" opacity=".8"/>
+  <circle cx="300" cy="250" r="8" fill="#b7ff3c"/><circle cx="590" cy="165" r="8" fill="#b7ff3c"/>
+  <g fill="#d9e5da" font-family="monospace" font-size="16"><text x="70" y="70">CONSTRAINT STUDY / 001</text><text x="720" y="570">EXAMINE FIRST</text><text x="275" y="225">INPUT</text><text x="570" y="140">SYSTEM</text></g>
+</svg>

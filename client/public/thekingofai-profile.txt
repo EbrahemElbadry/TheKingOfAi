@@ -1,0 +1,25 @@
+THEKINGOFAI — FULL-STACK DEVELOPER
+==================================
+
+Profile
+-------
+Full-stack developer building dependable products at the intersection of interface design, backend architecture, and applied AI.
+
+Core capabilities
+-----------------
+• TypeScript / JavaScript — product systems
+• React / Next.js — interface architecture
+• Node.js / APIs — backend services
+• Python / AI tooling — intelligence workflows
+• PostgreSQL / Data — durable models
+• Cloud / DevOps — reliable delivery
+
+Working approach
+----------------
+Clear interfaces, composable services, and release paths grounded in the needs of the actual product.
+
+Contact
+-------
+hello@thekingofai.dev
+https://github.com/TheKingOfAI
+
