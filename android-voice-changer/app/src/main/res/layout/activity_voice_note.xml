@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:fillViewport="true"
+    android:background="#0E1116">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎤 مغيّر الرسائل الصوتية"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="١) سجّل صوتك  ٢) اختر مؤثراً  ٣) استمع  ٤) شارك على واتساب"
+            android:textColor="#9AA4B2"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/recordButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔴 ابدأ التسجيل"
+            android:textSize="18sp"
+            app:cornerRadius="16dp" />
+
+        <TextView
+            android:id="@+id/recordStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="لا يوجد تسجيل بعد"
+            android:textColor="#9AA4B2"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="اختر المؤثر:"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:paddingTop="8dp" />
+
+        <GridLayout
+            android:id="@+id/effectsGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:useDefaultMargins="false" />
+
+        <TextView
+            android:id="@+id/intensityLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="شدة المؤثر: 100%"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:paddingTop="16dp" />
+
+        <SeekBar
+            android:id="@+id/intensitySeek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="100" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/playButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="▶️ استماع للنتيجة"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:enabled="false"
+            app:cornerRadius="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/shareButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📤 حفظ ومشاركة"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            app:cornerRadius="16dp" />
+
+    </LinearLayout>
+</ScrollView>
